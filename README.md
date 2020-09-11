@@ -21,7 +21,11 @@
 * [ERNIE: Enhanced Representation through Knowledge Integration](https://arxiv.org/abs/1904.09223): 在预训练的时候mask实体以引入先验知识。
 * [ALBERT: A Lite BERT for Self-supervised Learning of Language Representations](https://arxiv.org/abs/1909.11942): NSP-> SOP; 减小embedding层维数；对内层的bert layer重复使用。
 
-### Fintuning Algorithm
+### Finetuning Algorithm
+* [Mixout: Effective Regularization to Finetune Large-scale Pretrained Language Models](https://arxiv.org/abs/1909.11299): 受到dropout的启发，提出了mixout，区别于dropout将相关weight设置为0，mixout将命中的神经元相关的weight设置为pretrain LM的weight来避免灾难性遗忘的产生，并提升了训练的稳定性。
+* [Revisiting Few-sample BERT Fine-tuning](https://arxiv.org/abs/2006.05987): 修正BERTAdam；模型重初始化；增加epoch。
+* [Fine-Tuning Pretrained Language Models: Weight Initializations, Data Orders, and Early Stopping](https://arxiv.org/abs/2002.06305): Random Seed的不同会影响参数初始化和data载入顺序并对实验结果的影响非常大。
+* [Universal Language Model Fine-tuning for Text Classification](https://arxiv.org/abs/1801.06146): ULMFIT提出了三种finetune算法1) discriminative fine-tuning: 区别于之前的全局唯一一个lr，discriminative fine-tuning对每一个layer使用不同的lr进行训练，lr_prev = lr_curr / 2.6；2) slanted triangular learning: 动态学习率，根据迭代轮数动态的修改lr，起初设置较小的lr找到方向，之后线性增大lr加速收敛，后期线性调小lr；3) gradual unfreezing: unfreeze最后一层训一个epoch，之后unfreeze倒数第二层训一个epoch...
 
 
 ### Document Understanding
