@@ -26,6 +26,8 @@
 * [Revisiting Few-sample BERT Fine-tuning](https://arxiv.org/abs/2006.05987): 修正BERTAdam；模型重初始化；增加epoch。
 * [Fine-Tuning Pretrained Language Models: Weight Initializations, Data Orders, and Early Stopping](https://arxiv.org/abs/2002.06305): Random Seed的不同会影响参数初始化和data载入顺序并对实验结果的影响非常大。
 * [Universal Language Model Fine-tuning for Text Classification](https://arxiv.org/abs/1801.06146): ULMFIT提出了三种finetune算法1) discriminative fine-tuning: 区别于之前的全局唯一一个lr，discriminative fine-tuning对每一个layer使用不同的lr进行训练，lr_prev = lr_curr / 2.6；2) slanted triangular learning: 动态学习率，根据迭代轮数动态的修改lr，起初设置较小的lr找到方向，之后线性增大lr加速收敛，后期线性调小lr；3) gradual unfreezing: unfreeze最后一层训一个epoch，之后unfreeze倒数第二层训一个epoch...
+* [Sentence Encoders on STILTs: Supplementary Training on Intermediate Labeled-data Tasks](https://arxiv.org/abs/1811.01088): 将BERT Finetuning分两步走，先在数据量充足的中间数据上Finetune一遍，再在下游继续Finetune，这里主要的应用是在finetune RTE/MRPC/STSB之前，先在MNLI上finetune一下。
+* [Multi-Task Deep Neural Networks for Natural Language Understanding](https://arxiv.org/abs/1901.11504): 提出MT-DNN，在BERT的基础上使用MultiTask进行finetune，主要分为4个Task：单句分类，文本相似度，对句分类，相关性排序。通过cross-task data的训练使得pretrained LM能够得到更加通用且泛化性更强的representation。
 
 
 ### Document Understanding
