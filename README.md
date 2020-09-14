@@ -22,6 +22,8 @@
 * [ALBERT: A Lite BERT for Self-supervised Learning of Language Representations](https://arxiv.org/abs/1909.11942): NSP-> SOP; 减小embedding层维数；对内层的bert layer重复使用。
 * [SpanBERT: Improving Pre-training by Representing and Predicting Spans](https://arxiv.org/abs/1907.10529): 相比于BERT提出了两点改进，一个是MASK连续的span，平均长度3.8，一个是提出了SBO目标，就是通过边界词和pos emb来预测span中的单词。
 * [Revisiting Pre-Trained Models for Chinese Natural Language Processing](https://arxiv.org/abs/2004.13922): 对中文预训练模型进行了研究，并提出MacBERT。掩码策略是分词后WWM + NG，并且mask的词使用同义词进行替换。
+* [DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter](https://arxiv.org/abs/1910.01108): 使用6层的bert layer通过知识蒸馏的方式拟合bert的能力。
+* [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555): 两个BERT叠加，第一个BERT输入的是Masked sentence，通过其得到被MASK单词的替代词，第二个BERT输入的是将MASK替换为替代词的sentence，网络对每个token都会做二分类，判别其是否被替换了。
 
 
 ### Finetuning Algorithm
