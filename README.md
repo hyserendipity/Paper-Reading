@@ -40,3 +40,4 @@
 
 
 ### Self Supervised Learning
+* [Bootstrap your own latent: A new approach to self-supervised Learning](https://arxiv.org/abs/2006.07733): 采用contrastive learning的思路，有两个模型，分别是online model和target model，输入的是同一张图片的不同数据增强的样本，用target model去拟合online model的输出feature。另外，target model的参数初始化为online model的滑动均值。
