@@ -20,6 +20,9 @@
 * [Contextual Embeddings: When Are They Worth It?](https://arxiv.org/abs/2005.09117): 对contextual embedding和word2vec进行了比较，结论是在训练集充足且语句结构简单的任务上word2vec相较BERT效果甚至更好；在语句结构复杂，一词多义较多，unseen words较多的任务上，BERT效果往往更好。
 * [ERNIE: Enhanced Representation through Knowledge Integration](https://arxiv.org/abs/1904.09223): 在预训练的时候mask实体以引入先验知识。
 * [ALBERT: A Lite BERT for Self-supervised Learning of Language Representations](https://arxiv.org/abs/1909.11942): NSP-> SOP; 减小embedding层维数；对内层的bert layer重复使用。
+* [SpanBERT: Improving Pre-training by Representing and Predicting Spans](https://arxiv.org/abs/1907.10529): 相比于BERT提出了两点改进，一个是MASK连续的span，平均长度3.8，一个是提出了SBO目标，就是通过边界词和pos emb来预测span中的单词。
+* [Revisiting Pre-Trained Models for Chinese Natural Language Processing](https://arxiv.org/abs/2004.13922): 对中文预训练模型进行了研究，并提出MacBERT。掩码策略是分词后WWM + NG，并且mask的词使用同义词进行替换。
+
 
 ### Finetuning Algorithm
 * [Mixout: Effective Regularization to Finetune Large-scale Pretrained Language Models](https://arxiv.org/abs/1909.11299): 受到dropout的启发，提出了mixout，区别于dropout将相关weight设置为0，mixout将命中的神经元相关的weight设置为pretrain LM的weight来避免灾难性遗忘的产生，并提升了训练的稳定性。
@@ -28,6 +31,7 @@
 * [Universal Language Model Fine-tuning for Text Classification](https://arxiv.org/abs/1801.06146): ULMFIT提出了三种finetune算法1) discriminative fine-tuning: 区别于之前的全局唯一一个lr，discriminative fine-tuning对每一个layer使用不同的lr进行训练，lr_prev = lr_curr / 2.6；2) slanted triangular learning: 动态学习率，根据迭代轮数动态的修改lr，起初设置较小的lr找到方向，之后线性增大lr加速收敛，后期线性调小lr；3) gradual unfreezing: unfreeze最后一层训一个epoch，之后unfreeze倒数第二层训一个epoch...
 * [Sentence Encoders on STILTs: Supplementary Training on Intermediate Labeled-data Tasks](https://arxiv.org/abs/1811.01088): 将BERT Finetuning分两步走，先在数据量充足的中间数据上Finetune一遍，再在下游继续Finetune，这里主要的应用是在finetune RTE/MRPC/STSB之前，先在MNLI上finetune一下。
 * [Multi-Task Deep Neural Networks for Natural Language Understanding](https://arxiv.org/abs/1901.11504): 提出MT-DNN，在BERT的基础上使用MultiTask进行finetune，主要分为4个Task：单句分类，文本相似度，对句分类，相关性排序。通过cross-task data的训练使得pretrained LM能够得到更加通用且泛化性更强的representation。
+* [Don't Stop Pretraining: Adapt Language Models to Domains and Tasks](https://arxiv.org/abs/2004.10964): 提出DAPT在Domain Data上继续预训练；TAPT在Task Data上继续预训练。DAPT和TAPT最大的区别在于TAPT是在更小的，但是更task relevant的数据上预训练。
 
 
 ### Document Understanding
